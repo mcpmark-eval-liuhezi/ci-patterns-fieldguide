@@ -1,0 +1,40 @@
+name: CI
+
+# This repository's own CI. It runs on every push, so the guide practices what it
+# preaches: the workflow file itself is the pattern under discussion.
+
+on: push
+
+# Least-privilege default: the check only needs to read the checkout. Note this
+# mirrors the `permissions: contents: read` block seen in several of the
+# reference workflows documented in notes/.
+permissions:
+  contents: read
+
+# Cancel superseded runs on the same ref. Compare with the per-PR concurrency
+# groups used by curl/curl and numpy/numpy.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-notes:
+    name: Lint field-guide notes
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Validate the field-guide notes
+        run: python scripts/check_notes.py
+
+      - name: Validate the README links to the issue tracker
+        run: |
+          grep -q 'issues/1' README.md
