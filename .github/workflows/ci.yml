@@ -37,4 +37,4 @@ jobs:
 
       - name: Validate the README links to the issue tracker
         run: |
-          grep -q 'issues/1' README.md
+          grep -q 'issues/2' README.md

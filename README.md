@@ -29,10 +29,10 @@ other people. Each selected repository demonstrates at least one teachable patte
 3. **Maintained by others.** Only repositories owned by third parties were considered.
 4. **Coverage across ecosystems.** Python, C, JavaScript/TypeScript, and Go projects are
    all represented, so the patterns are not tied to one toolchain.
-5. **Trimmed to the strongest.** From the wider candidate set, the clearest and most
-   instructive examples were kept. Every candidate that was cut is recorded, with a
-   one-line reason, in the issue tracker — see
-   ["Expand coverage beyond the first batch"](../../issues/1).
+5. **Trimmed to the strongest.** Ten candidates were examined; the six clearest and most
+   instructive were kept. Every candidate that was cut is recorded, with a one-line
+   reason, in the issue tracker — see
+   ["Expand coverage beyond the first batch"](../../issues/2).
 
 ## Repository layout
 
